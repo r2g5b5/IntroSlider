@@ -20,15 +20,13 @@ import android.widget.TextView;
 
 public class IntroSliderActivity extends AppCompatActivity {
 
-    ViewPager viewPager;
-    Button btnNext, btnSkip;
-    LinearLayout linearLayout;
-
-    SliderPagerAdapter sliderPagerAdapter;
+    private ViewPager viewPager;
+    private Button btnNext, btnSkip;
+    private LinearLayout linearLayout;
 
     private SliderPrefManager prefManager;
 
-    int[] layoutIDs = {
+    private final int[] layoutIDs = {
             R.layout.intro_slide1, R.layout.intro_slide2, R.layout.intro_slide3, R.layout.intro_slide4};
 
     @Override
@@ -43,7 +41,7 @@ public class IntroSliderActivity extends AppCompatActivity {
         btnSkip = findViewById(R.id.intro_btnSkip);
         linearLayout = findViewById(R.id.intro_linearlayout_dots);
 
-        sliderPagerAdapter = new SliderPagerAdapter();
+        SliderPagerAdapter sliderPagerAdapter = new SliderPagerAdapter();
 
         viewPager.setAdapter(sliderPagerAdapter);
 
@@ -52,6 +50,8 @@ public class IntroSliderActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
             if (viewPager.getCurrentItem()==viewPager.getAdapter().getCount()-1){
                 startActivity(new Intent(IntroSliderActivity.this,MainActivity.class));
                 prefManager.setStartSlider(false);
@@ -60,15 +60,23 @@ public class IntroSliderActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
             }
 
+
+
+
             }
         });
 
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 startActivity(new Intent(IntroSliderActivity.this,MainActivity.class));
                 prefManager.setStartSlider(false);
                 finish();
+
+
+
             }
         });
 
@@ -81,6 +89,8 @@ public class IntroSliderActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
+
+
                 showDots(position);
 
                 if (position == viewPager.getAdapter().getCount() - 1) {
@@ -105,6 +115,8 @@ public class IntroSliderActivity extends AppCompatActivity {
 
 
     private void showDots(int pageNumber) {
+
+
         TextView[] txtDots = new TextView[layoutIDs.length];
         linearLayout.removeAllViews();
         for (int i = 0; i < layoutIDs.length; i++) {
@@ -118,6 +130,8 @@ public class IntroSliderActivity extends AppCompatActivity {
             }
             linearLayout.addView(txtDots[i]);
         }
+
+
     }
 
     class SliderPagerAdapter extends PagerAdapter {
