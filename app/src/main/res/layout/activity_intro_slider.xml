@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".IntroSliderActivity">
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/indtro_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+     />
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/white"
+    android:layout_above="@id/intro_linearlayout_dots"
+
+
+    />
+    <LinearLayout
+        android:id="@+id/intro_linearlayout_dots"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/intro_btnNext"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="Next"
+        android:textColor="@color/white"
+        android:layout_marginEnd="5dp"
+        android:background="@android:color/transparent"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/intro_btnSkip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/transparent"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/white"
+        android:text="Skip"
+        />
+
+
+
+
+</RelativeLayout>
